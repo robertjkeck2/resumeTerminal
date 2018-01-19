@@ -5,7 +5,6 @@
   "homepage": "https://robertjkeck2.github.io/resumeTerminal",
   "main": "reactcart.js",
   "scripts": {
-    "deploy": "npm run dist&&gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "watchify -t reactify ./src/app.js -o ./build/main.min.js -v",
     "dist": "npm run remove-dist && npm run build-standalone",
