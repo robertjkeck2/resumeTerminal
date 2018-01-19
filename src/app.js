@@ -8,6 +8,7 @@ var App = React.createClass({
         currentFolder: '',
         folders: ['Projects', 'About', 'Contact', 'Resume'],
         files: {
+          '~': [],
           'Projects': ['AutoCaller.git', 'weatherAlertDjango.git', 'lykability.git', 'flaskResumeAPI.git'],
           'About': ['about.txt', 'website'],
           'Contact': ['email', 'linkedin'],
@@ -55,6 +56,8 @@ var App = React.createClass({
                           "From Indianapolis, IN.");
       } else if (this.state.files[this.state.currentFolder].includes(arg)) {
           this.addHistory("-bash: cat: " +  arg + ": Not readable. Use 'open' to open this file.");
+      } else if (this.state.folders.includes(arg)) {
+          this.addHistory("-bash: cat: " +  arg + ": Argument is a directory not a file.");
       } else {
           this.addHistory("-bash: cat: " +  arg + ": No such file or directory");
       }
