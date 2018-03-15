@@ -9,7 +9,7 @@ var App = React.createClass({
         folders: ['Projects', 'About', 'Contact', 'Resume'],
         files: {
           '~': [],
-          'Projects': ['AutoCaller.git', 'weatherAlertDjango.git', 'lykability.git', 'flaskResumeAPI.git'],
+          'Projects': ['KEX.git', 'AutoCaller.git', 'weatherAlertDjango.git', 'lykability.git', 'flaskResumeAPI.git'],
           'About': ['about.txt', 'website'],
           'Contact': ['email', 'linkedin'],
           'Resume': ['resume.pdf'],
