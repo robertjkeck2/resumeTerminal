@@ -106,6 +106,7 @@ var App = React.createClass({
       this.addHistory("help - print available commands");
       this.addHistory("open - open non-txt files");
       this.addHistory("ls - list files in directory");
+      this.addHistory("exit - return to robertjohnkeck.com");
   },
   componentDidMount: function() {
       var term = this.refs.term.getDOMNode();
