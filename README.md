@@ -1,5 +1,5 @@
 # resumeTerminal
-##My personal resume in a React terminal emulator 
+## My personal resume in a React terminal emulator 
 ---
 (shoutout to prakhar1989 for the great foundation to build on)
 
