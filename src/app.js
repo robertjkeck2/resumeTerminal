@@ -33,6 +33,7 @@ var App = React.createClass({
         'cat'   : this.catFile,
         'github': this.openGitHub,
         'open'  : this.openLink,
+        'exit'  : this.exitLink,
       }
     });
   },
@@ -47,12 +48,16 @@ var App = React.createClass({
       this.addHistory("Type `help` for available commands");
       this.addHistory(" ");
   },
+  exitLink: function() {
+      var action = window.open('https://robertjohnkeck.com', '_self');
+      return action;
+  },
   catFile: function(arg) {
       if (arg === "about.txt") {
           this.addHistory('ABOUT ME');
-          this.addHistory("Strategy & Operations at DoorDash.\n\n" +
-                          "MBA from Harvard Business School.\n\n" +
-                          "BS Mechanical Engineering from Purdue.\n\n" +
+          this.addHistory("MS/MBA joint degree student @ Harvard.\n\n" +
+                          "Freelance developer & former Manager, Special Ops @ DoorDash.\n\n" +
+                          "BS Engineering from Purdue.\n\n" +
                           "From Indianapolis, IN.");
       } else if (this.state.files[this.state.currentFolder].includes(arg)) {
           this.addHistory("-bash: cat: " +  arg + ": Not readable. Use 'open' to open this file.");

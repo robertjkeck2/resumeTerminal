@@ -5,20 +5,24 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/skeleton.css">
     <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <style>
       body {
         margin: 100px 0;
         font-family: 'Inconsolata', monospace;
         font-size: 14px;
         color: #dfe1e8;
-        background: #343d46;
+        background-image: url('images/background.jpg');
+        background-repeat: no-repeat;
+        background-size: : contain;
+        background-position: center;
       }
       #app, div.input-area {
         height: 100%;
       }
       div#main {
           max-width: 560px;
-          background: #2b303b;
+          background: black;
           border-radius: 5px;
           height: 400px;
           -webkit-box-shadow: 0px 0px 13px 0px rgba(50, 50, 50, 0.59);
@@ -40,7 +44,7 @@
         padding: 0; 
         margin: 0;
         height: 22px;
-        background: #2b303b;
+        background: black;
         color: #ebcb8b;
         width: 80%;
       }
@@ -51,7 +55,7 @@
       #bar {
         height: 30px;
         max-width: 560px;
-        background: black;
+        background: white;
         border-radius: 5px;
         z-index: -1;
         text-align: center;
@@ -62,7 +66,7 @@
       }
       #text {
         z-index: 1;
-        color: #dfe1e8;
+        color: black;
         display: inline-block;
         position: relative;
         text-align: center;
