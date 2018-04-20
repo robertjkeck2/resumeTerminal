@@ -1,6 +1,7 @@
 # resumeTerminal
-My personal resume in a React terminal emulator (shoutout to prakhar1989 for the great foundation to build on)
+##My personal resume in a React terminal emulator 
 ---
+(shoutout to prakhar1989 for the great foundation to build on)
 
 Check it out at: https://robertjohnkeck.com/resumeTerminal/
 
