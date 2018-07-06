@@ -1,10 +1,8 @@
 {
-  "name": "react-term",
-  "version": "0.0.1",
-  "description": "",
-  "homepage": "https://robertjkeck2.github.io/resumeTerminal",
-  "author": "John Keck",
-  "license": "MIT",
+  "name": "rjkreact",
+  "version": "0.1.0",
+  "homepage": "http://robertjkeck2.github.io/resumeTerminal",
+  "private": true,
   "dependencies": {
     "npm": "^6.1.0",
     "react": "^16.4.1",
@@ -16,6 +14,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.2.0"
   }
 }
