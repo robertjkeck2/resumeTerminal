@@ -1,7 +1,22 @@
 {
   "name": "react-term",
+<<<<<<< HEAD
   "version": "0.1.0",
   "private": true,
+=======
+  "version": "0.0.1",
+  "description": "",
+  "homepage": "https://robertjkeck2.github.io/resumeTerminal",
+  "main": "app.js",
+  "scripts": {
+    "watch": "watchify -t reactify ./src/app.js -o ./build/main.min.js -v",
+    "dist": "npm run remove-dist && npm run build-standalone",
+    "remove-dist": "rm build/*.js",
+    "build-standalone": "NODE_ENV=production browserify -t reactify ./src/app.js | uglifyjs -mc > build/main.min.js"
+  },
+  "author": "John Keck",
+  "license": "MIT",
+>>>>>>> 5e2b9f7c76e255cad5c0f2a0720d4d9e8061c2ce
   "dependencies": {
     "npm": "^6.1.0",
     "react": "^16.4.1",

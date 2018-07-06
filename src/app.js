@@ -58,6 +58,7 @@ class Resume extends Component {
         'open'  : this.openLink,
         'exit'  : this.exitLink,
       }
+<<<<<<< HEAD
     })
   }
 
@@ -168,6 +169,51 @@ class Resume extends Component {
     if (command === undefined) {
       if (input !== '') {
         this.addHistory("-bash: " + input + ": command not found")
+=======
+    });
+  },
+  listFiles: function(arg) {
+      if (arg === '~') {
+          this.addHistory(this.state.folders.join(' '));
+      } else {
+          this.addHistory(this.state.files[arg].join(' '));
+      }  
+  },
+  showWelcomeMsg: function() {
+      this.addHistory("Type `help` for available commands");
+      this.addHistory(" ");
+  },
+  exitLink: function() {
+      var action = window.open('https://robertjohnkeck.com', '_self');
+      return action;
+  },
+  catFile: function(arg) {
+      if (arg === "about.txt") {
+          this.addHistory('ABOUT ME');
+          this.addHistory("MS/MBA joint degree student @ Harvard.\n\n" +
+                          "Freelance developer & former Manager, Special Ops @ DoorDash.\n\n" +
+                          "BS Engineering from Purdue.\n\n" +
+                          "From Indianapolis, IN.");
+      } else if (this.state.files[this.state.currentFolder].includes(arg)) {
+          this.addHistory("-bash: cat: " +  arg + ": Not readable. Use 'open' to open this file.");
+      } else if (this.state.folders.includes(arg)) {
+          this.addHistory("-bash: cat: " +  arg + ": Argument is a directory not a file.");
+      } else {
+          this.addHistory("-bash: cat: " +  arg + ": No such file or directory");
+      }
+  },
+  openGitHub: function(link) {
+      var action = null;
+      var links = 'https://github.com/robertjkeck2/';
+      var github_files = this.state.files['Projects'];
+      if (link === undefined) {
+          action = window.open(links, '_blank');
+      } else if (github_files.includes(link)) {
+          links = 'https://github.com/robertjkeck2/' + link;
+          action = window.open(links, '_blank');
+      } else {
+          this.addHistory("-bash: github: " +  link + ": This is not a GitHub project file.");
+>>>>>>> 5e2b9f7c76e255cad5c0f2a0720d4d9e8061c2ce
       }
     } else if (command === this.listFiles) {
       command(this.state.currentFolder)
@@ -179,7 +225,62 @@ class Resume extends Component {
       } else if ((this.state.currentFolder !== '~') && (this.state.files[this.state.currentFolder].includes(arg)))  {
         this.addHistory("-bash: cd: " + arg + ": Not a directory")
       } else {
+<<<<<<< HEAD
         this.addHistory("-bash: cd: " + arg + ": No such file or directory")
+=======
+          this.addHistory("-bash: open: " + link + ": Unable to open file.");
+      }
+      return action;
+  },
+  showHelp: function() {
+      this.addHistory("cd - change directory");
+      this.addHistory("cat - read contents of .txt file");
+      this.addHistory("clear - clear screen");
+      this.addHistory("github - open a .git project in github");
+      this.addHistory("help - print available commands");
+      this.addHistory("open - open non-txt files");
+      this.addHistory("ls - list files in directory");
+      this.addHistory("exit - return to robertjohnkeck.com");
+  },
+  componentDidMount: function() {
+      var term = this.refs.term.getDOMNode();
+      this.registerCommands();
+      this.showWelcomeMsg();
+      this.setCurrentDirectory('~');
+      term.focus();
+  },
+  componentDidUpdate: function() {
+      var el = React.findDOMNode(this);
+      var container = document.getElementById("main");
+      container.scrollTop = el.scrollHeight;
+  },
+  handleInput: function(e) {
+      if (e.key === "Enter") {
+          var input_text = this.refs.term.getDOMNode().value;
+          var input_array = input_text.split(' ');
+          var input = input_array[0];
+          var arg = input_array[1];
+          var command = this.state.commands[input];
+          this.addHistory("johnkeck:" + this.state.currentFolder + " " + this.state.prompt + " " + input_text);
+          if (command === undefined) {
+              this.addHistory("-bash: " + input + ": command not found");
+          } else if (command === this.listFiles) {
+              command(this.state.currentFolder);
+          } else if (command === this.setCurrentDirectory) {
+              if (arg === "..") {
+                  this.setCurrentDirectory('~');
+              } else if (this.state.folders.includes(arg)) {
+                  this.setCurrentDirectory(arg);
+              } else if ((this.state.currentFolder != '~') && (this.state.files[this.state.currentFolder].includes(arg)))  {
+                  this.addHistory("-bash: cd: " + arg + ": Not a directory");
+              } else {
+                  this.addHistory("-bash: cd: " + arg + ": No such file or directory");
+              }
+          } else {
+              command(arg);
+          }
+          this.clearInput();
+>>>>>>> 5e2b9f7c76e255cad5c0f2a0720d4d9e8061c2ce
       }
     } else {
       command(arg)
